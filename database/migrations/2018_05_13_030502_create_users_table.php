@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('picture_url');
             $table->int('event_id');
-            $table->dateTime('create_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->dateTime('update_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->timestamps('create_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps('update_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

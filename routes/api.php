@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::resource('events', 'Api\EventController', [
+    'except' => ['edit', 'show', 'store']
+]);
+
+Route::resource('users', 'Api\UserController', [
+    'except' => ['edit', 'show', 'store']
+]);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

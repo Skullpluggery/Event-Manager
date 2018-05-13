@@ -8,7 +8,7 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'picture_url' => '.',
         'location' =>$faker->address,
         'description' => $faker->sentence,
-        'date_start' =>$faker->dateTimeThisMonth($max = 'now', $timezone = 'Asia/Beijing'),
-        'date_end' =>$faker->dateTimeThisMonth($max = 'now +7 days', $timezone = 'Asia/Beijing'),
+        'date_start' =>$faker->dateTimeThisMonth($max = 'now'),
+        'date_end' =>$faker->dateTimeThisMonth($max = 'now +7 days'),
     ];
 });

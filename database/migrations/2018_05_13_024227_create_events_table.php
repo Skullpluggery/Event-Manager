@@ -19,10 +19,10 @@ class CreateEventsTable extends Migration
             $table->string('picture_url');
             $table->string('location');
             $table->string('description')->nullable();
-            $table->dateTime('date_start');
-            $table->dateTime('date_end');
-            $table->dateTime('create_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->dateTime('update_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+            $table->timestamps('date_start');
+            $table->timestamps('date_end');
+            $table->timestamps('create_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps('update_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
