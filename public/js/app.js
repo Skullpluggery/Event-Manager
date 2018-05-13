@@ -11475,7 +11475,7 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(48);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
@@ -11490,8 +11490,9 @@ module.exports = __webpack_require__(48);
  */
 
 __webpack_require__(14);
+__webpack_require__(39);
 
-window.Vue = __webpack_require__(39);
+window.Vue = __webpack_require__(40);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -11500,10 +11501,10 @@ window.Vue = __webpack_require__(39);
  */
 
 //Event Component
-Vue.component('event-component', __webpack_require__(42));
+Vue.component('event-component', __webpack_require__(43));
 
 //User Component
-Vue.component('user-component', __webpack_require__(45));
+Vue.component('user-component', __webpack_require__(46));
 
 var app = new Vue({
   el: '#app'
@@ -44798,6 +44799,14 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 39 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+      $('.slider').slider({ height: 300 });
+});
+
+/***/ }),
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55760,10 +55769,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(40).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(41).setImmediate))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -55819,7 +55828,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(41);
+__webpack_require__(42);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -55833,7 +55842,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -56026,15 +56035,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = __webpack_require__(43)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56073,7 +56082,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56094,43 +56103,244 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    data: function data() {
+        return {
+            loading: false,
+            post: null,
+            error: null,
+            events: []
+        };
+    },
+    created: function created() {
+        // fetch the data when the view is created and the data is
+        // already being observed
+        this.fetchEvents();
+    },
+
+    watch: {
+        // call again the method if the route changes
+        '$route': 'fetchEvents'
+    },
+
+    methods: {
+        fetchEvents: function fetchEvents() {
+            var _this = this;
+
+            this.loading = true;
+            axios.get('events').then(function (response) {
+                _this.loading = false;
+                _this.events = response.data;
+            });
+        }
     }
 });
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { attrs: { id: "event" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "container" },
+      [
+        _vm.loading
+          ? _c("div", { staticClass: "progress" }, [
+              _c("div", { staticClass: "indeterminate" })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._l(_vm.events, function(event) {
+          return _c("div", { key: event.id, staticClass: "row event-list" }, [
+            _c("div", { staticClass: "col s12" }, [
+              _c("div", { staticClass: "card horizontal" }, [
+                _vm._m(1, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-stacked" }, [
+                  _c("div", { staticClass: "card-content" }, [
+                    _c("div", { staticClass: "row no-margin-bot" }, [
+                      _c("div", { staticClass: "col s12" }, [
+                        _c("span", { staticClass: "card-title indigo-text" }, [
+                          _vm._v(_vm._s(event.name))
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row no-margin-bot" }, [
+                      _c("div", { staticClass: "col s12" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "mdi mdi-map-marker" }),
+                          _vm._v(" Location: " + _vm._s(event.location))
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row no-margin-bot" }, [
+                      _c("div", { staticClass: "col s6" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "mdi mdi-calendar-range" }),
+                          _vm._v(" Date Start: " + _vm._s(event.date_start))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col s6 right-align" }, [
+                        _c("span", [
+                          _c("i", { staticClass: "mdi mdi-calendar-range" }),
+                          _vm._v(" Date End: " + _vm._s(event.date_end))
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [_vm._v("About the Event")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(event.description))])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2, true)
+                ])
+              ])
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Event Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
+    return _c("div", { staticClass: "slider" }, [
+      _c("ul", { staticClass: "slides relative" }, [
+        _c("li", [
+          _c("img", {
+            attrs: {
+              src:
+                "https://cdn.allwallpaper.in/wallpapers/2400x1350/8754/music-concert-2400x1350-wallpaper.jpg"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("img", {
+            attrs: {
+              src:
+                "https://www.artsfon.com/pic/201510/1920x1080/artsfon.com-73885.jpg"
+            }
+          })
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "float-above-slider" }, [
+          _c(
+            "a",
+            {
+              staticClass:
+                "btn-floating btn-large waves-effect waves-light tooltipped",
+              attrs: {
+                "data-position": "right",
+                "data-delay": "50",
+                "data-tooltip": "Create an Event!"
+              }
+            },
+            [_c("i", { staticClass: "mdi mdi-playlist-plus" })]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-image" }, [
+      _c("img", {
+        staticClass: "img-cover",
+        attrs: {
+          src:
+            "http://via.placeholder.com/350x300/3F51B5/FFFFFF/?text=Place+Holder"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-action right-align" }, [
+      _c("a", { staticClass: "pink-text", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "mdi mdi-account-plus" }),
+        _vm._v(" REGISTER GUEST")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "pink-text", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "mdi mdi-square-edit-outline" }),
+        _vm._v(" EDIT EVENT")
       ])
     ])
   }
@@ -56145,15 +56355,15 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = __webpack_require__(46)
+var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(47)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56192,7 +56402,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56221,7 +56431,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56264,7 +56474,7 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

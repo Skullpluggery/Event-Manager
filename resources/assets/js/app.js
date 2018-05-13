@@ -6,6 +6,7 @@
  */
 
 require('./materialize');
+require('./init');
 
 window.Vue = require('vue');
 
