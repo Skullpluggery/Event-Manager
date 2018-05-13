@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Event extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,8 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'email', 'first_name', 'last_name', 'picture_url', 'event_id', 'created_at', 'updated_at',
+        'name', 'picture_url', 'location', 'description', 
+        'date_start', 'date_end', 'created_at', 'updated_at',
     ];
 
     /**
