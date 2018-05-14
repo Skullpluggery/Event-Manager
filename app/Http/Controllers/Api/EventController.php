@@ -15,7 +15,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        return response(Event::all()->jsonSerialize(), Response::HTTP_OK);
+        
+        return response(Event::orderBy('date_start', 'DESC')->get()->jsonSerialize(), Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +37,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = Event::create($request->all());
+
+        return $event;
     }
 
     /**

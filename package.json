@@ -19,6 +19,10 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "materialize-css": "^0.100.2",
+        "luxon": "^1.2.0",
+        "vue-datetime": "^1.0.0-beta.3",
+        "moment": "^2.22.1",
+        "weekstart": "^1.0.0",
         "popper.js": "^1.12",
         "vue": "^2.5.7"
     }

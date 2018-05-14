@@ -6,6 +6,9 @@
  */
 
 require('./materialize');
+require('luxon');
+require('vue-datetime');
+require('moment');
 require('./init');
 
 window.Vue = require('vue');
@@ -15,9 +18,15 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import moment from 'moment';
+Vue.prototype.moment = moment;
+
+import { Datetime } from 'vue-datetime';
+Vue.component('datetime', Datetime);
 
 //Event Component
-Vue.component('event-component', require('./components/EventComponent.vue'));
+Vue.component('event-index', require('./components/events/EventIndex.vue'));
+Vue.component('event-create', require('./components/events/EventCreate.vue'));
 
 //User Component
 Vue.component('user-component', require('./components/UserComponent.vue'));

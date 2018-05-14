@@ -1,13 +1,28 @@
+body{
+    background-color: #FAFAFA;
+}
 .slider .indicators .indicator-item.active {
     background-color: #E91E63 !important;
 }
 
+.modal{
+    height: 525px!important;
+    max-height: unset!important;
+}
+
+.headline{
+    font-weight: bolder;
+    margin-top:0!important;
+    margin-bottom:0!important;
+}
 .float-above-slider {
     margin-top: -25px;
     z-index: 1;
     float: right;
 }
-
+.event-section{
+    margin-top: 25px!important;
+}
 .relative {
     position: relative;
     z-index: 0;
@@ -22,9 +37,6 @@
     height: 300px;
     
 }
-.event-list{
-    margin-bottom:0!important;
-}
 
 .img-cover{
     height: 100%;
@@ -34,4 +46,8 @@
 
 .no-margin-bot{
     margin-bottom:0!important;
+}
+
+.no-margin-top{
+    margin-top:0!important;
 }
