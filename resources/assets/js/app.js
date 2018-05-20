@@ -7,17 +7,18 @@
 
 require('./materialize');
 require('luxon');
-require('vue-datetime');
-require('moment');
 require('./init');
 
 window.Vue = require('vue');
 
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 import moment from 'moment';
 Vue.prototype.moment = moment;
 
@@ -26,11 +27,32 @@ Vue.component('datetime', Datetime);
 
 //Event Component
 Vue.component('event-index', require('./components/events/EventIndex.vue'));
-Vue.component('event-create', require('./components/events/EventCreate.vue'));
+//Vue.component('event-create', require('./components/events/EventCreate.vue'));
+//Vue.component('event-update', require('./components/events/EventUpdate.vue'));
 
 //User Component
-Vue.component('user-component', require('./components/UserComponent.vue'));
+//Vue.component('user-component', require('./components/UserComponent.vue'));
+
+//Event Route
+import EventIndex from './components/events/EventIndex.vue';
+import EventCreate from './components/events/EventCreate.vue';
+import EventUpdate from './components/events/EventUpdate.vue';
+
+const routes = [
+    { path: '/', component: EventIndex},
+    { path: '/event/create', component: EventCreate},
+    { path: '/event/update', component: EventUpdate}
+]
+
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+})
 
 const app = new Vue({
-    el: '#app'
-});
+    router
+  }).$mount('#app')
+  
+// const app = new Vue({
+//     el: '#app'
+// });

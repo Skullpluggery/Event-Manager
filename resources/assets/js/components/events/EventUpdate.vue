@@ -1,7 +1,7 @@
 <template>
     <form method="post" @submit.prevent="onSubmit">
         <div class="modal-content">
-            <h4>Create an Event</h4>
+            <h4>Update an Event</h4>
             <div class="divider"></div>
             <br>
             <div class="row">
@@ -33,8 +33,15 @@
 
         </div>
         <div class="modal-footer">
-            <button type="submit" class="modal-action waves-effect btn-flat pink-text">CREATE</button>
-            <a class="modal-action modal-close waves-effect btn-flat">CANCEL</a>
+            <div class="row no-margin-bot">
+                <div class="col s6 left-align">
+                    <button type="submit" class="modal-action waves-effect btn-flat red-text">DELETE</button>
+                </div>
+                <div class="col s6  right-align">
+                    <button type="submit" class="modal-action waves-effect btn-flat pink-text">UPDATE</button>
+                    <a class="modal-action modal-close waves-effect btn-flat">CANCEL</a>
+                </div>
+            </div>
         </div>
     </form>
 </template>

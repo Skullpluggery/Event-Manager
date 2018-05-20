@@ -33,14 +33,10 @@
     text-transform: capitalize;
 }
 
-.card.horizontal {
-    height: 300px;
-    
-}
-
 .img-cover{
     height: 100%;
     width: 100%;
+    background-position: center center;
     background-size: cover;
 }
 
@@ -50,7 +46,50 @@
 
 .no-margin-top{
     margin-top:0!important;
-}.materialize-custom {
+}
+
+@media only screen and (min-width: 601px) {
+    .card.responsive-horizontal {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+    .card.responsive-horizontal.small .card-image, .card.responsive-horizontal.medium .card-image, .card.responsive-horizontal.large .card-image {
+      height: 100%;
+      max-height: none;
+      overflow: visible;
+    }
+    .card.responsive-horizontal.small .card-image img, .card.responsive-horizontal.medium .card-image img, .card.responsive-horizontal.large .card-image img {
+      max-height: 100%;
+      width: auto;
+    }
+    .card.responsive-horizontal .card-image {
+      max-width: 50%;
+    }
+    .card.responsive-horizontal .card-image img {
+      border-radius: 2px 0 0 2px;
+      width: auto;
+      max-width: 100%;
+    }
+    .card.responsive-horizontal .card-stacked {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+    }
+    .card.responsive-horizontal .card-stacked .card-content {
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+    }
+  }.materialize-custom {
   background-color: #ffffff !important;
 }
 
