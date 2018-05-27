@@ -21,9 +21,8 @@ class CreateEventsTable extends Migration
             $table->string('description')->nullable();
             $table->timestamps('date_start');
             $table->timestamps('date_end');
-            $table->timestamps('create_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamps('update_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-        });
+            $table->timestamps();
+           });
     }
 
     /**
