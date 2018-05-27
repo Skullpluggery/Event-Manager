@@ -72,6 +72,10 @@
                     this.$router.push('/');
                 });
             },
+            onClose(){
+                $('#event-modal').modal('close');
+                this.$router.push('/');
+            }
 
         }
     }

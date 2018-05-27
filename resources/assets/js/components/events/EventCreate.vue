@@ -34,7 +34,7 @@
         </div>
         <div class="modal-footer">
             <button type="submit" class="modal-action waves-effect btn-flat pink-text">CREATE</button>
-            <a class="modal-action modal-close waves-effect btn-flat">CANCEL</a>
+            <button v-on:click="onClose()" class="modal-action modal-close waves-effect btn-flat">CANCEL</button>
         </div>
     </form>
 </template>
@@ -65,6 +65,10 @@
                     this.$router.push('/');
                 });
             },
+            onClose(){
+                $('#event-modal').modal('close');
+                this.$router.push('/');
+            }
 
         }
     }

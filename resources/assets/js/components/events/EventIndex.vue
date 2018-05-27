@@ -88,7 +88,7 @@
             // already being observed
             this.fetchEvents()
         },
-        watch: {
+       watch: {
             '$route' (to, from) {
                 this.fetchEvents()
             }

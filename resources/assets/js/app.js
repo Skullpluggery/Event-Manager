@@ -44,8 +44,7 @@ const routes = [
     { path: '/event/update', component: EventUpdate}
 ]
 
-const router = new VueRouter({
-    mode: 'history',
+const router = new VueRouter({  
     routes // short for `routes: routes`
 })
 
