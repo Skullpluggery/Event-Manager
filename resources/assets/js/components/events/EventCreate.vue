@@ -61,8 +61,7 @@
                 this.event.date_end = this.moment(this.event.date_end).format('YYYY-MM-DD HH:MM:ss');
                 console.log(this.event);
                 axios.post('events', this.event).then(response => {
-                    $('#event-modal').modal('close');
-                    this.$router.push('/');
+                    this.onClose();
                 });
             },
             onClose(){

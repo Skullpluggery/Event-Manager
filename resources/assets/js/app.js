@@ -41,7 +41,7 @@ import EventUpdate from './components/events/EventUpdate.vue';
 const routes = [
     { path: '/', component: EventIndex},
     { path: '/event/create', component: EventCreate},
-    { path: '/event/update', component: EventUpdate}
+    { path: '/event/update/:id', component: EventUpdate, props: true}
 ]
 
 const router = new VueRouter({  

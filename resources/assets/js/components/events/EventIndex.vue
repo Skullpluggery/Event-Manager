@@ -59,7 +59,7 @@
                             <div class="card-action right-align">
                                 <a class="pink-text">
                                     <i class="mdi mdi-account-plus"></i> REGISTER VIP GUEST</a>
-                                <button v-on:click="updateModal()" class="pink-text btn-flat">
+                                <button v-on:click="updateModal(event.id)" class="pink-text btn-flat">
                                     <i class="mdi mdi-square-edit-outline"></i> EDIT EVENT</button>
                             </div>
                         </div>
@@ -99,9 +99,9 @@
                 $('#event-modal').modal('open');
                 this.$router.push('/event/create');
             },
-            updateModal(){
+            updateModal($id){
                 $('#event-modal').modal('open');
-                this.$router.push('/event/update');
+                this.$router.push('/event/update/' + $id);
             },
             fetchEvents() {
                 this.loading = true;
